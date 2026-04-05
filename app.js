@@ -1,7 +1,12 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
+
+app.use(cors());
+app.use(express.json());
+
 
 // Home route
 app.get("/", (req, res) => {
@@ -26,6 +31,11 @@ app.get("/about", (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+console.log("Server Starting");
+//app.listen(PORT, () => {
+  //console.log(`Server is running on http://localhost:${PORT}`);
+//});
+app.listen(PORT, "127.0.0.1", () => {
+    console.log(`Server is running on http://127.0.0.1:${PORT}`);
+  });
+console.log("This line should still appear, but server should remain running");
